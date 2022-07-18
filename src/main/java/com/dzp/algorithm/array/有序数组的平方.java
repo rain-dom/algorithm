@@ -57,5 +57,23 @@ public class 有序数组的平方 {
         }
         return result;
     }
+
+    public int[] sortedSquares2(int[] nums) {
+        int l = 0;
+        int r = nums.length - 1;
+        int i = r;
+        int[] res = new int[nums.length];
+        while (l <= r) {
+            if (nums[l] * nums[l] > nums[r] * nums[r]) {
+                res[i--] = nums[l] * nums[l];
+                l++;
+            } else {
+                res[i--] = nums[r] * nums[r];
+                r--;
+            }
+        }
+        return res;
+    }
+
 }
 //leetcode submit region end(Prohibit modification and deletion)
